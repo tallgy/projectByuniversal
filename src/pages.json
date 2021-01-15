@@ -48,13 +48,13 @@
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath":"static/tabbar/homepage.png",
-				"selectedIconPath":"static/tabbar/selectedProject.png"
+				"selectedIconPath":"static/tabbar/selectedHomepage.png"
 			},
 			{
 				"pagePath": "pages/projects/projects",
 				"text": "项目",
 				"iconPath":"static/tabbar/project.png",
-				"selectedIconPath":"static/tabbar/selectedHomepage.png"
+				"selectedIconPath":"static/tabbar/selectedProject.png"
 			},
 			{
 				"pagePath": "pages/person/person",

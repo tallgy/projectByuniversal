@@ -17,39 +17,44 @@
 			</view>
 		</view>
 
+		<!-- 登录 -->
 		<view class="login margin-b80" v-if="!cur">
 			<view class="input vs-row vs-align-center margin-b40">
 				<image class="input-icon margin-r20" src="/static/login/account.png" mode=""></image>
-				<input class="vs-flex-item color-base font-30" type="text" value="" :maxlength="11" placeholder="请输入您的手机号/邮箱"
+				<input class="vs-flex-item color-base font-30" type="text" v-model="user.username" :maxlength="11" placeholder="请输入您的手机号/邮箱"
 				 placeholder-class="input-placeholder" />
 			</view>
 			<view class="input vs-row vs-align-center margin-b40">
 				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
-				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请输入您的登录密码"
+				<input class="vs-flex-item color-base font-30" type="text" v-model="user.password" password placeholder="请输入您的登录密码"
 				 placeholder-class="input-placeholder" />
 			</view>
 		</view>
 
+		<!-- 注册 -->
 		<view class="register margin-b80" v-if="cur">
 			<view class="input vs-row vs-align-center margin-b40">
 				<image class="input-icon margin-r20" src="/static/login/account.png" mode=""></image>
-				<input class="vs-flex-item color-base font-30" type="text" value="" :maxlength="11" placeholder="请输入您的手机号/邮箱"
+				<input class="vs-flex-item color-base font-30" type="text" v-model="user.username" :maxlength="11" placeholder="请输入您的手机号/邮箱"
 				 placeholder-class="input-placeholder" />
 			</view>
 			<view class="input vs-row vs-align-center margin-b40">
 				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
-				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请输入您的登录密码"
+				<input class="vs-flex-item color-base font-30" type="text" password v-model="user.password" placeholder="请输入您的登录密码"
 				 placeholder-class="input-placeholder" />
 			</view>
 		</view>
+
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
 
 		<view class="margin-top">
 			<cc-button @cctap="login" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
 			 :loading="isloading" fontsize="34rpx">立即{{ cur ? '注册': '登录' }}</cc-button>
+			<!-- 遮罩层 -->
 			<mask v-if="isloading"></mask>
 		</view>
 
-		<view class="vs-row vs-align-center vs-space-center margin-b100">
+		<view class="vs-row vs-align-center vs-space-center margin-b100 .margin-t50">
 			<text class="color-base font-28" @click="forgetPWD">忘记密码？</text>
 		</view>
 
@@ -70,6 +75,7 @@
 </template>
 
 <script>
+	import helper from '../../common/helper.js';
 	export default {
 		data() {
 			return {
@@ -85,12 +91,36 @@
 			login() {
 				console.log('登录按钮点击')
 				this.isloading = true;
-				setTimeout( () => {
+				if (this.user.username == null || this.user.password == null) {
+					helper.warnPop(this, '请输入用户名和密码！', 1000)
 					this.isloading = false;
-					uni.switchTab({
-						url: "/pages/index/index"
-					})
-				}, 3500)
+				} else {
+					this.loginSuccess()
+					// uni.request({
+					// 	url: this.$api + '',
+					// 	method: 'POST',
+					// 	data: {
+
+					// 	},
+					// 	header: {
+					// 		'custom-header': 'hello' //自定义请求头信息
+					// 	},
+					// 	success: (res) => {
+					// 		console.log('登录请求的返回数据')
+					// 		console.log(res.data);
+
+					// 		loginSuccess();
+
+					// 	}
+					// })
+				}
+			},
+			loginSuccess() {
+				helper.successPop(this, '登录成功', 1000)
+				this.isloading = false;
+				uni.switchTab({
+					url: "/pages/index/index"
+				})
 			},
 			forgetPWD() {
 				console.log('忘记密码点击')

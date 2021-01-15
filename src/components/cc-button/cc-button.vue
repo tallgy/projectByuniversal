@@ -101,6 +101,7 @@ export default {
   display: flex;
 
   .button {
+	  margin: 0 auto;
     padding: 0px;
     transition: 0.35s ease all;
     // 开启3D加速
