@@ -1,0 +1,171 @@
+<template>
+	<view class="container">
+		<view class="bg bg-color-base margin-b20"></view>
+
+		<view class="tab vs-row vs-align-center">
+			<image class="tab-bg" src="/static/login/banner-icon.png" mode=""></image>
+
+			<view class="vs-row vs-align-center">
+				<view class="vs-column vs-align-center margin-r40">
+					<text class="font-50 margin-b20" :class="[cur ? 'color-black-3': 'color-base']">忘记密码</text>
+					<view class="line bg-color-base"></view>
+				</view>
+			</view>
+		</view>
+
+		<view class="login margin-b80" v-if="!cur">
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/account.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" value="" :maxlength="11" placeholder="请输入您的手机号/邮箱"
+				 placeholder-class="input-placeholder" />
+			</view>
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请输入您的身份证号"
+				 placeholder-class="input-placeholder" />
+			</view>
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请输入您的密码"
+				 placeholder-class="input-placeholder" />
+			</view>
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请再次输入您的密码"
+				 placeholder-class="input-placeholder" />
+			</view>
+		</view>
+
+		<view class="register margin-b80" v-if="cur">
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/account.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" value="" :maxlength="11" placeholder="请输入您的手机号/邮箱"
+				 placeholder-class="input-placeholder" />
+			</view>
+			<view class="input vs-row vs-align-center margin-b40">
+				<image class="input-icon margin-r20" src="/static/login/password.png" mode=""></image>
+				<input class="vs-flex-item color-base font-30" type="text" password value="" placeholder="请输入您的登录密码"
+				 placeholder-class="input-placeholder" />
+			</view>
+		</view>
+
+		<view class="button bg-color-base vs-row vs-align-center vs-space-center margin-b20" @click="changePWD">
+			<text class="color-white font-34">修改密码</text>
+		</view>
+
+		<view class="vs-row vs-align-center vs-space-center margin-b100">
+			<text class="color-base font-28" @click="goToBack">返回</text>
+		</view>
+
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				cur: 0
+			}
+		},
+		methods: {
+			changePWD() {
+				console.log('确认修改密码');
+				
+				this.goToBack();
+			},
+			goToBack() {
+				console.log('返回');
+				uni.navigateBack({
+					
+				});
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	.container {
+		position: relative;
+	}
+
+	.bg {
+		position: relative;
+		width: 750rpx;
+		height: 400rpx;
+	}
+
+	.tab {
+		position: absolute;
+		top: 250rpx;
+		left: 20rpx;
+		right: 20rpx;
+		height: 150rpx;
+		padding: 0 50rpx;
+		background-color: #fff;
+		border-top-left-radius: 20rpx;
+		border-top-right-radius: 20rpx;
+
+		&-bg {
+			position: absolute;
+			top: -200rpx;
+			right: -50rpx;
+			width: 440rpx;
+			height: 285rpx;
+		}
+	}
+
+	.bg-color-base {
+		background-color: #007AFF;
+	}
+
+	.line {
+		width: 25rpx;
+		height: 7rpx;
+	}
+
+	.login,
+	.register {
+		padding: 0 60rpx;
+	}
+
+	.input {
+		width: 630rpx;
+		height: 90rpx;
+		padding: 0 30rpx;
+		background-color: rgba(80, 100, 235, 0.1);
+		border-radius: 30rpx;
+
+		&-icon {
+			width: 30rpx;
+			height: 38rpx;
+		}
+
+		&-placeholder {
+			color: #5064eb;
+		}
+	}
+
+	.button {
+		width: 630rpx;
+		height: 90rpx;
+		margin-left: 60rpx;
+		border-radius: 30rpx;
+	}
+
+	.separator {
+		height: 2rpx;
+		margin: 0 30rpx;
+		background-color: #f5f5f5;
+	}
+
+	.other {
+		&-items {
+			padding: 0 200rpx;
+		}
+
+		&-icon {
+			width: 50rpx;
+			height: 50rpx;
+		}
+	}
+</style>

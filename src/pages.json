@@ -1,0 +1,68 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"backgroundColor": "#007AFF",
+				"navigationBarBackgroundColor": "#007AFF"
+			}
+		},
+		{
+			"path": "pages/changePWD/changePWD",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+
+			}
+		},
+		{
+			"path":"pages/projects/projects",
+			"style": {
+				
+			}
+		},
+		{
+			"path":"pages/person/person",
+			"style": {
+				
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "高校科研管理系统",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#007AFF"
+	},
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#FFD305",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath":"static/tabbar/homepage.png",
+				"selectedIconPath":"static/tabbar/selectedProject.png"
+			},
+			{
+				"pagePath": "pages/projects/projects",
+				"text": "项目",
+				"iconPath":"static/tabbar/project.png",
+				"selectedIconPath":"static/tabbar/selectedHomepage.png"
+			},
+			{
+				"pagePath": "pages/person/person",
+				"text": "个人中心",
+				"iconPath":"static/tabbar/person.png",
+				"selectedIconPath":"static/tabbar/selectedPerson.png"
+			}
+		]
+	}
+
+}
