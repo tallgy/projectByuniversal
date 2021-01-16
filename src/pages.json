@@ -4,6 +4,7 @@
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录",
+			
 				"backgroundColor": "#007AFF",
 				"navigationBarBackgroundColor": "#007AFF"
 			}
@@ -17,11 +18,11 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-
+				"enablePullDownRefresh": true
 			}
 		},
 		{
-			"path":"pages/projects/projects",
+			"path":"pages/server/server",
 			"style": {
 				
 			}
@@ -31,10 +32,16 @@
 			"style": {
 				
 			}
+		},
+		{
+			"path":"pages/forms/form",
+			"style": {
+				
+			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "高校科研管理系统",
 		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#007AFF"
@@ -51,10 +58,10 @@
 				"selectedIconPath":"static/tabbar/selectedHomepage.png"
 			},
 			{
-				"pagePath": "pages/projects/projects",
-				"text": "项目",
-				"iconPath":"static/tabbar/project.png",
-				"selectedIconPath":"static/tabbar/selectedProject.png"
+				"pagePath": "pages/server/server",
+				"text": "服务",
+				"iconPath":"static/tabbar/server.png",
+				"selectedIconPath":"static/tabbar/selectedServer.png"
 			},
 			{
 				"pagePath": "pages/person/person",

@@ -76,6 +76,7 @@
 
 <script>
 	import helper from '../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
@@ -92,7 +93,7 @@
 				console.log('登录按钮点击')
 				this.isloading = true;
 				if (this.user.username == null || this.user.password == null) {
-					helper.warnPop(this, '请输入用户名和密码！', 1000)
+					helper.warnPop(this, '请输入用户名和密码！', 1500)
 					this.isloading = false;
 				} else {
 					this.loginSuccess()
@@ -116,7 +117,7 @@
 				}
 			},
 			loginSuccess() {
-				helper.successPop(this, '登录成功', 1000)
+				helper.successPop(this, '登录成功', 1500)
 				this.isloading = false;
 				uni.switchTab({
 					url: "/pages/index/index"

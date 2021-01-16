@@ -110,6 +110,12 @@
 				//轮播图的事件
 				console.log('轮播图', item, index)
 			},
+			goToTeam() {
+				console.log('去团队');
+				uni.navigateTo({
+					url: '/pages/team/team'
+				})
+			},
 			getServerDataMix() {
 				uni.request({
 					url: 'https://www.easy-mock.com/mock/5cc586b64fc5576cba3d647b/uni-wx-charts/chartsdata2',
@@ -337,5 +343,17 @@
 		width: 750upx;
 		height: 500upx;
 		background-color: #FFFFFF;
+	}
+	
+	.index-img {
+		width: 100rpx;
+		height: 100rpx;
+		justify-content: center;
+	}
+	
+	.index-box {
+		width: 120rpx;
+		height: auto;
+		margin: 20rpx;
 	}
 </style>
