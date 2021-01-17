@@ -1,5 +1,7 @@
 {
 	"pages": [ 
+
+		
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -48,14 +50,14 @@
 		{
 			"path": "pages/list/list",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "高校科研管理"
 			}
 		},
 
 		{
 			"path": "pages/purchase/list/list",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "高校科研管理"
 			}
 		},
 
