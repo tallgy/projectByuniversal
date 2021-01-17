@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <view class="YmContent">
     <!-- 头部 -->
     <view class="top_space">
@@ -206,13 +206,47 @@
           <text decode="true" class="function_text">权限</text>
         </view>
       </view>
+	  
+	  <!-- 日志管理 -->
+	  <view class="hospital_services_14">
+	    <view class="module_name_view"> </view>
+	    <text decode="true" class="module_name">日志管理</text>
+	  </view>
+	  <view class="module_space">
+	    <view class="function_name">
+	      <image
+	        v-on:click="openLog"
+	        src="/static/log/log.png"
+	        border="0"
+	        class="function_img"
+	      ></image>
+	      <text decode="true" class="function_text">日志</text>
+	    </view>
+	  </view>
+	  
+	  
     </view>
   </view>
 </template>
 
 <script>
-import service_modules from "./service_modules.js";
-export default service_modules;
+	
+	export default {
+		data() {
+			return {
+				
+			};
+		},
+		methods: {
+			openLog() {
+				console.log('打开日志');
+				uni.navigateTo({
+					url: '/pages/log/log',
+				})
+			}
+		}
+	}
+	
 </script>
 
 <style lang="scss" scoped>

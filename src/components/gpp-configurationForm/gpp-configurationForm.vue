@@ -285,7 +285,7 @@
 			.gpp-cf-title{
 				position: relative;
 				padding: 10px 10px 10px 30px;
-				font-size: 16px;
+				font-size: 30px;
 				.titleBeforeOpen{
 					transition: all 0.3s ease;
 					position: absolute;
@@ -319,6 +319,7 @@
 					margin-bottom: 16px;
 					.item-name{
 						margin-bottom: 3px;
+						font-size: 30rpx;
 					}
 					.item-content{
 						position: relative;
@@ -326,7 +327,7 @@
 							position: absolute;
 							top: 8px;
 							right: 10px;
-							font-size: 14px;
+							font-size: 24px;
 							color: #d5d5d5;
 						}
 					}

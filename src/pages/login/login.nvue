@@ -89,6 +89,9 @@
 				right: null,
 			}
 		},
+		onLoad: (res) => {
+			console.log(uni.getStorageSync('token'));
+		},
 		methods: {
 			login() {
 				console.log('登录按钮点击')
@@ -97,10 +100,6 @@
 					helper.warnPop(this, '请输入用户名和密码！', 1500)
 					this.isloading = false;
 				} else {
-					uni.setStorage({
-						key: 'token',
-						data: 'res.data.resultMsg'
-					});
 					this.loginSuccess()
 					// uni.request({
 					// 	url: this.$api + '/login', //仅为示例，并非真实接口地址。
@@ -124,14 +123,20 @@
 					// 			uni.setStorage({
 					// 				key: 'right',
 					// 				data: res.data.data
-					// 			})
-					// 			// this.$token = res.data.resultMsg;
-					// 			// this.$right = res.data.data;
+					// 			});
+					// 			uni.setStorage({
+					// 				key: 'userId',
+					// 				data: this.user.username
+					// 			});
 					// 			this.loginSuccess();
 					// 		} else {
 					// 			this.isloading = false;
 					// 			helper.errorPop(this, '登录失败，账号或密码错误！', 1500);
 					// 		}
+					// 	},
+					// 	fail: (res) => {
+					// 		this.isloading = false;
+					// 		helper.errorPop(this, '网络错误，请稍后再试');
 					// 	}
 					// });
 				}

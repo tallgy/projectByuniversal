@@ -3,7 +3,7 @@
 	<view class="YmContent">
 		<view class="info_96">
 			<view class="info_61">
-				<text decode="true" class="info_66">我的头像</text>
+				<text decode="true" class="info_62">我的头像</text>
 				<image v-on:click="photo_63_click()" :src="imgUrl" mode="scaleToFill" border="0" class="photo"></image>
 			</view>
 			<view v-on:click="row4_65_click()" class="row4">
@@ -85,7 +85,7 @@
 			</view>
 			<view class="row4 margin-b100">
 				<cc-button width="300rpx" height="90rpx" color="#fff" bgcolor="#ff0000;"
-				 fontsize="34rpx">退出</cc-button>
+				:loading="isloading" @cctap="exit" fontsize="34rpx">退出</cc-button>
 			</view>
 		</view>
 	</view>
@@ -98,6 +98,7 @@
 	export default {
 		data() {
 			return {
+				isloading: false,
 				userinfo: {
 					name: '王五',
 					sex: '男',
@@ -154,6 +155,30 @@
 			this.Refresh();
 		},
 		methods: {
+			exit() {
+				uni.showModal({
+				    title: '提示',
+				    content: '是否要退出',
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+							uni.setStorage({
+								key: 'token',
+								data: null,
+							});
+							uni.setStorage({
+								key: 'userId',
+								data: null,
+							});
+							uni.navigateTo({
+								url: '/pages/login/login',
+							});
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
+			},
 			/**
 			 * photo_63处理函数
 			 * 数据绑定  data-index="{{index}}" 
@@ -385,7 +410,7 @@
 		text-align: left;
 		border-radius: 0upx;
 		color: #000000;
-		font-size: 26upx;
+		font-size: 30upx;
 		line-height: 29upx;
 	}
 

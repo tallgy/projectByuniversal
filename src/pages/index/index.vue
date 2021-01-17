@@ -4,6 +4,35 @@
 		<view>
 			<vear-carousel :img-list="imgList" url-key="url" @selected="selectedBanner" class="margin-t50" />
 		</view>
+		<view class="">
+			<view class="qiun-columns">
+				<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
+					<view class="qiun-title-dot-light">功能</view>
+				</view>
+				<view class="qiun-function" style="padding-left: 60rpx;">
+					<view v-on:click="goToProject"  class="index-box">
+						<image src="/static/index/projectDeclare.png" mode="scaleToFill" border="0" class="index-img"></image>
+						<text decode="true" class="function_text" v-on:click="toProjectList()">项目申报</text>
+					</view>
+					<view v-on:click="goToPaper"  class="index-box">
+						<image src="/static/index/paper.png" mode="scaleToFill" border="0" class="index-img"></image>
+						<text decode="true" class="function_text" v-on:click="toProjectList()">论文申报</text>
+					</view>
+					<view v-on:click="goToWork"  class="index-box">
+						<image src="/static/index/workDeclare.png" mode="scaleToFill" border="0" class="index-img"></image>
+						<text decode="true" class="function_text" v-on:click="toProjectList()">著作申报</text>
+					</view>
+					<view v-on:click="goToScientific"  class="index-box">
+						<image src="/static/index/scientificDeclare.png" mode="scaleToFill" border="0" class="index-img"></image>
+						<text decode="true" class="function_text" v-on:click="toProjectList()">科研申报</text>
+					</view>
+					<view v-on:click="goToPatent"  class="index-box" style="margin-bottom: 20rpx;">
+						<image src="/static/index/patentDeclare.png" mode="scaleToFill" border="0" class="index-img"></image>
+						<text decode="true" class="function_text" v-on:click="toProjectList()">专利申报</text>
+					</view>
+				</view>
+			</view>
+		</view>
 		<view>
 			<view class="qiun-columns">
 				<view class="qiun-bg-white qiun-title-bar qiun-common-mt">
@@ -110,17 +139,46 @@
 				//轮播图的事件
 				console.log('轮播图', item, index)
 			},
-			goToTeam() {
-				console.log('去团队');
+			goToProject() {
+				console.log('project');
+				this.goToForm('project');
+			},
+			goToPaper() {
+				console.log('paper');
+				this.goToForm('paper');
+			},
+			goToWork() {
+				console.log('work');
+				this.goToForm('work');
+			},
+			goToScientific() {
+				console.log('scientific');
+				this.goToForm('scientific');
+			},
+			goToPatent() {
+				console.log('patent');
+				this.goToForm('patent');
+			},
+			goToForm(value) {
 				uni.navigateTo({
-					url: '/pages/team/team'
+					url: '/pages/forms/form?form=' + value,
 				})
 			},
 			getServerDataMix() {
+				var token = uni.getStorageSync('token');
+				var userId = uni.getStorageSync('userId');
+				console.log(userId);
 				uni.request({
-					url: 'https://www.easy-mock.com/mock/5cc586b64fc5576cba3d647b/uni-wx-charts/chartsdata2',
-					data: {},
+					url: this.$api + '/mangerModel/home/assessmentresult',
+					method: 'POST',
+					data: {
+						userId: userId
+					},
+					header: {
+						'authorization': token,
+					},
 					success: (res) => {
+						console.log('asfasfasfasfadsf')
 						console.log(res.data.data)
 						//下面这个根据需要保存后台数据，我是为了模拟更新柱状图，所以存下来了
 						_self.serverDataMix = res.data.data;
@@ -181,16 +239,20 @@
 				});
 			},
 			getserverDataPie() {
+				var token = uni.getStorageSync('token');
+				var userId = uni.getStorageSync('userId');
 				uni.request({
-					url: 'https://www.easy-mock.com/mock/5cc586b64fc5576cba3d647b/uni-wx-charts/chartsdata2',
-					data: {},
+					url: this.$api + '/mangerModel/home/overview',
+					method: 'POST',
+					data: {
+						userId: userId
+					},
+					header: {
+						'authorization': token
+					},
 					success: (res) => {
-						uni.getStorage({
-							key: 'token',
-							success: function(res) {
-								console.log(res.data);
-							}
-						});
+						console.log('pie              asdfasd')
+						console.log(res.data.data)
 						//下面这个根据需要保存后台数据，我是为了模拟更新柱状图，所以存下来了
 						_self.serverDataPie = res.data.data;
 						let Pie = {
@@ -332,7 +394,7 @@
 
 	.qiun-title-dot-light {
 		border-left: 10upx solid #0ea391;
-		padding-left: 10upx;
+		padding-left: 10upx;;
 		font-size: 32upx;
 		color: #000000
 	}
@@ -344,21 +406,33 @@
 		background-color: #FFFFFF;
 	}
 
+	.qiun-function {
+		width: 750upx;
+		height: auto;
+		background-color: #FFFFFF;
+	}
+
 	.charts {
 		width: 750upx;
 		height: 500upx;
 		background-color: #FFFFFF;
+
 	}
 
 	.index-img {
-		width: 100rpx;
-		height: 100rpx;
+		width: 64rpx;
+		height: 65rpx;
+		margin: 0 20rpx;
 		justify-content: center;
 	}
 
 	.index-box {
-		width: 120rpx;
+		width: 130rpx;
 		height: auto;
-		margin: 20rpx;
+		margin-left: 30rpx;
+		margin-top: 30rpx;
+		/* padding: 0 20rpx; */
+		float: left;
+		font-size: 30rpx;
 	}
 </style>
