@@ -3,7 +3,7 @@
 	<view class="YmContent">
 		<view class="info_96">
 			<view class="info_61">
-				<text decode="true" class="info_62">我的头像</text>
+				<text decode="true" class="info_66">我的头像</text>
 				<image v-on:click="photo_63_click()" :src="imgUrl" mode="scaleToFill" border="0" class="photo"></image>
 			</view>
 			<view v-on:click="row4_65_click()" class="row4">
@@ -84,7 +84,7 @@
 			<view class="info_83">
 			</view>
 			<view class="row4 margin-b100">
-				<cc-button width="600rpx" color="#fff" bgcolor="#ff0000;"
+				<cc-button width="300rpx" height="90rpx" color="#fff" bgcolor="#ff0000;"
 				 fontsize="34rpx">退出</cc-button>
 			</view>
 		</view>
@@ -108,7 +108,7 @@
 					college_id: '001',
 					college_name: '计算机科学学院',
 					register: '2020-11-14',
-					note: '该用户比较勤快，暂时没有备注呢',
+					note: '该用户比较勤快，暂时没有备注',
 					birth_date: '1999-02-15',
 					post: '教授',
 					email: '123412@qq.com',
@@ -446,7 +446,7 @@
 		text-align: left;
 		border-radius: 0upx;
 		color: #000000;
-		font-size: 27upx;
+		font-size: 30upx;
 		line-height: 29upx;
 	}
 
@@ -461,7 +461,7 @@
 		text-align: right;
 		border-radius: 0upx;
 		color: #c8c8c8;
-		font-size: 24upx;
+		font-size: 28upx;
 		line-height: 29upx;
 	}
 
