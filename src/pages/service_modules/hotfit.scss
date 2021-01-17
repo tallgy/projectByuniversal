@@ -1,0 +1,771 @@
+html,
+body,
+#app {
+    height: 100%;
+    width: 100%;
+}
+.YmContent {
+    height: 100%;
+    width: 100%;
+}
+uni-page-body,
+#app {
+    height: 100%;
+}
+button::after {
+    border: none;
+    width: auto;
+}
+input {
+    outline: none;
+    border: none;
+    list-style: none;
+    width: auto;
+}
+.list_item {
+    float: left;
+}
+.ym_hide {
+    display: none;
+}
+.ym_show {
+    display: block;
+}
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+.list_horizontal {
+    width: auto;
+    display: inline-block;
+}
+.hospital_services_1 {
+    white-space: normal;
+    width: 749upx;
+    position: relative;
+    height: 288upx;
+    padding: 0upx;
+    clear: both;
+    float: left;
+    background-color: #f4f4f8;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_1 .hospital_services_2 {
+    white-space: normal;
+    width: 749upx;
+    height: 159upx;
+    padding: 0upx;
+    margin-top: 0upx;
+    margin-left: 0upx;
+    float: left;
+    position: absolute;
+    top: 0upx;
+    left: 0upx;
+    background-color: #2c92fd;
+    border-radius: 0upx;
+    border-bottom-left-radius: 100upx;
+    border-bottom-right-radius: 100upx;
+    font-size: 8upx;
+}
+.hospital_services_1 .hospital_services_3 {
+    white-space: normal;
+    width: 698upx;
+    height: 191upx;
+    padding: 0upx;
+    margin-top: 59upx;
+    margin-left: 26upx;
+    float: left;
+    position: absolute;
+    top: 0upx;
+    left: 0upx;
+    background-color: #ffffff;
+    border-radius: 20upx;
+    font-size: 8upx;
+}
+.hospital_services_1 .hospital_services_3 .hospital_services_4 {
+    white-space: normal;
+    width: 66upx;
+    height: 58upx;
+    padding: 0upx;
+    margin-top: 65upx;
+    margin-left: 99upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 33upx;
+    line-height: 58upx;
+}
+.hospital_services_1 .hospital_services_3 .hospital_services_5 {
+    white-space: normal;
+    width: 211upx;
+    height: 30upx;
+    padding: 0upx;
+    margin-top: 81upx;
+    margin-left: 30upx;
+    float: left;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 30upx;
+}
+.hospital_services_1 .hospital_services_3 .hospital_services_6 {
+    white-space: normal;
+    width: 160upx;
+    height: 54upx;
+    padding: 0upx;
+    margin-top: 68upx;
+    margin-left: 46upx;
+    float: left;
+    background-color: #2c92fd;
+    border-radius: 10upx;
+    font-size: 29upx;
+    line-height: 54upx;
+}
+.hospital_services_7 {
+    white-space: normal;
+    width: 749upx;
+    height: 1119upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    float: left;
+    background-color: #f5f4f9;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_8 {
+    white-space: normal;
+    width: 305upx;
+    height: 45upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 9upx;
+    margin-left: 26upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 45upx;
+}
+.hospital_services_7 .hospital_services_8 .hospital_services_9 {
+    white-space: normal;
+    width: 9upx;
+    height: 40upx;
+    padding: 0upx;
+    margin-top: 2upx;
+    margin-left: 2upx;
+    float: left;
+    background-color: #0092ff;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 40upx;
+}
+.hospital_services_7 .hospital_services_8 .hospital_services_10 {
+    white-space: normal;
+    width: 140upx;
+    height: 31upx;
+    padding: 0upx;
+    margin-top: 8upx;
+    margin-left: 29upx;
+    float: left;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 31upx;
+}
+.hospital_services_7 .hospital_services_11 {
+    white-space: normal;
+    width: 698upx;
+    height: 144upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 25upx;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 10upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 {
+    white-space: normal;
+    width: 659upx;
+    height: 138upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 11upx;
+    margin-left: 24upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_28 {
+    white-space: normal;
+    width: 86upx;
+    height: 118upx;
+    padding: 0upx;
+    margin-top: 5upx;
+    margin-left: 19upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_28 .hospital_services_29 {
+    white-space: normal;
+    width: 64upx;
+    height: 72upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 11upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 72upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_28  {
+    white-space: normal;
+    width: 85upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 15upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 26upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_31 {
+    white-space: normal;
+    width: 115upx;
+    height: 116upx;
+    padding: 0upx;
+    margin-top: 6upx;
+    margin-left: 73upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26  .hospital_services_32 {
+    white-space: normal;
+    width: 70upx;
+    height: 69upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 22upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 69upx;
+}
+.hospital_services_30{
+    white-space: normal;
+    width: 115upx;
+    height: 29upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 17upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 27upx;
+    line-height: 29upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_31 .hospital_services_33   {
+    white-space: normal;
+    width: 115upx;
+    height: 29upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 17upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 27upx;
+    line-height: 29upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_34 {
+    white-space: normal;
+    width: 113upx;
+    height: 117upx;
+    padding: 0upx;
+    margin-top: 6upx;
+    margin-left: 60upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_34 .hospital_services_35 {
+    white-space: normal;
+    width: 69upx;
+    height: 70upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 21upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 70upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_34 .hospital_services_36 {
+    white-space: normal;
+    width: 113upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 15upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_37 {
+    white-space: normal;
+    width: 119upx;
+    height: 115upx;
+    padding: 0upx;
+    margin-top: 7upx;
+    margin-left: 59upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_37 .hospital_services_38 {
+    white-space: normal;
+    width: 63upx;
+    height: 68upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 26upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 66upx;
+    line-height: 68upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_26 .hospital_services_37 .hospital_services_39 {
+    white-space: normal;
+    width: 119upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 17upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 {
+    white-space: normal;
+    width: 659upx;
+    height: 134upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 24upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_40 {
+    white-space: normal;
+    width: 115upx;
+    height: 115upx;
+    padding: 0upx;
+    margin-top: 13upx;
+    margin-left: 4upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_40 .hospital_services_41 {
+    white-space: normal;
+    width: 68upx;
+    height: 67upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 24upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 65upx;
+    line-height: 67upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_40 .hospital_services_42 {
+    white-space: normal;
+    width: 115upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 17upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_43 {
+    white-space: normal;
+    width: 165upx;
+    height: 118upx;
+    padding: 0upx;
+    margin-top: 10upx;
+    margin-left: 36upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_43 .hospital_services_44 {
+    white-space: normal;
+    width: 70upx;
+    height: 71upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 43upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 71upx;
+}
+.hospital_services_7 .hospital_services_11 .hospital_services_27 .hospital_services_43 .hospital_services_45 {
+    white-space: normal;
+    width: 159upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 15upx;
+    margin-left: 2upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 31upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_14 {
+    white-space: normal;
+    width: 252upx;
+    height: 45upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 60upx;
+    margin-left: 26upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 45upx;
+}
+.hospital_services_7 .hospital_services_14 .hospital_services_15 {
+    white-space: normal;
+    width: 9upx;
+    height: 40upx;
+    padding: 0upx;
+    margin-top: 2upx;
+    margin-left: 2upx;
+    float: left;
+    background-color: #0092fc;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 40upx;
+}
+.hospital_services_7 .hospital_services_14 .hospital_services_16 {
+    white-space: normal;
+    width: 147upx;
+    height: 31upx;
+    padding: 0upx;
+    margin-top: 7upx;
+    margin-left: 27upx;
+    float: left;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 32upx;
+    line-height: 31upx;
+}
+.hospital_services_7 .hospital_services_17 {
+    white-space: normal;
+    width: 698upx;
+    height: 145upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 25upx;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_47 {
+    white-space: normal;
+    width: 115upx;
+    height: 114upx;
+    padding: 0upx;
+    margin-top: 20upx;
+    margin-left: 30upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_47 .hospital_services_48 {
+    white-space: normal;
+    width: 64upx;
+    height: 65upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 24upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 63upx;
+    line-height: 65upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_47 .hospital_services_49 {
+    white-space: normal;
+    width: 114upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_50 {
+    white-space: normal;
+    width: 143upx;
+    height: 118upx;
+    padding: 0upx;
+    margin-top: 17upx;
+    margin-left: 44upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_50 .hospital_services_51 {
+    white-space: normal;
+    width: 70upx;
+    height: 71upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 35upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 71upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_50 .hospital_services_52 {
+    white-space: normal;
+    width: 143upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 15upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_53 {
+    white-space: normal;
+    width: 147upx;
+    height: 118upx;
+    padding: 0upx;
+    margin-top: 17upx;
+    margin-left: 30upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_53 .hospital_services_54 {
+    white-space: normal;
+    width: 72upx;
+    height: 72upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 36upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 72upx;
+}
+.hospital_services_7 .hospital_services_17 .hospital_services_53 .hospital_services_55 {
+    white-space: normal;
+    width: 147upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 14upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_20 {
+    white-space: normal;
+    width: 338upx;
+    height: 45upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 59upx;
+    margin-left: 26upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 45upx;
+}
+.hospital_services_7 .hospital_services_20 .hospital_services_21 {
+    white-space: normal;
+    width: 9upx;
+    height: 40upx;
+    padding: 0upx;
+    margin-top: 3upx;
+    margin-left: 2upx;
+    float: left;
+    background-color: #0092ff;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 40upx;
+}
+.hospital_services_7 .hospital_services_20 .hospital_services_22 {
+    white-space: normal;
+    width: 177upx;
+    height: 31upx;
+    padding: 0upx;
+    margin-top: 8upx;
+    margin-left: 27upx;
+    float: left;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 31upx;
+}
+.hospital_services_7 .hospital_services_23 {
+    white-space: normal;
+    width: 698upx;
+    height: 145upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 25upx;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_64 {
+    white-space: normal;
+    width: 114upx;
+    height: 125upx;
+    padding: 0upx;
+    margin-top: 9upx;
+    margin-left: 31upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_64 .hospital_services_58 {
+    white-space: normal;
+    width: 72upx;
+    height: 71upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 9upx;
+    margin-left: 20upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 71upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_64 .hospital_services_61 {
+    white-space: normal;
+    width: 114upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 14upx;
+    margin-left: 0upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 28upx;
+    line-height: 30upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_65 {
+    white-space: normal;
+    width: 115upx;
+    height: 125upx;
+    padding: 0upx;
+    margin-top: 9upx;
+    margin-left: 58upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_65 .hospital_services_59 {
+    white-space: normal;
+    width: 58upx;
+    height: 69upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 10upx;
+    margin-left: 28upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+    line-height: 69upx;
+}
+.hospital_services_7 .hospital_services_23 .hospital_services_65 .hospital_services_62 {
+    white-space: normal;
+    width: 115upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 15upx;
+    margin-left: 1upx;
+    float: left;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 27upx;
+    line-height: 30upx;
+}

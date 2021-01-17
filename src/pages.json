@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ 
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -22,9 +22,14 @@
 			}
 		},
 		{
-			"path":"pages/server/server",
+			"path": "pages/service_modules/service_modules",
 			"style": {
-				
+				"navigationBarTitleText": "高校科研管理",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark",
+				"app-plus": {
+					"titleView": false
+				}
 			}
 		},
 		{
@@ -37,6 +42,39 @@
 			"path":"pages/forms/form",
 			"style": {
 				
+			}
+		},
+		{
+			"path": "pages/list/list",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+
+		{
+			"path": "pages/purchase/list/list",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+
+		
+		{
+			"path" : "pages/list2detail-list/list2detail-list",
+			"style": {
+				"navigationBarTitleText": "列表到详情示例",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path" : "pages/list2detail-detail/list2detail-detail",
+			"style": {
+				"navigationBarTitleText": "详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
 			}
 		}
 	],
@@ -58,7 +96,7 @@
 				"selectedIconPath":"static/tabbar/selectedHomepage.png"
 			},
 			{
-				"pagePath": "pages/server/server",
+				"pagePath": "pages/service_modules/service_modules",
 				"text": "服务",
 				"iconPath":"static/tabbar/server.png",
 				"selectedIconPath":"static/tabbar/selectedServer.png"

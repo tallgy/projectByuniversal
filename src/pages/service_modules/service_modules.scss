@@ -1,0 +1,217 @@
+html,
+body,
+#app {
+    height: 100%;
+    width: 100%;
+}
+.YmContent {
+    height: 100%;
+    width: 100%;
+}
+uni-page-body,
+#app {
+    height: 100%;
+}
+button::after {
+    border: none;
+    width: auto;
+}
+input {
+    outline: none;
+    border: none;
+    list-style: none;
+    width: auto;
+}
+.list_item {
+    float: left;
+}
+.ym_hide {
+    display: none;
+}
+.ym_show {
+    display: block;
+}
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+.list_horizontal {
+    width: auto;
+    display: inline-block;
+}
+
+//顶部
+
+//顶部空间
+.top_space {
+    white-space: normal;
+    width: 749upx;
+    position: relative;
+    height: 168upx;
+    padding: 0upx;
+    clear: both;
+    float: left;
+    background-color: #f4f4f8;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+
+//顶部背景
+ .top_backgroud {
+    white-space: normal;
+    width: 749upx;
+    height: 159upx;
+    padding: 0upx;
+    margin-top: 0upx;
+    margin-left: 0upx;
+    float: left;
+    position: absolute;
+    top: 0upx;
+    left: 0upx;
+    background-color: #2c92fd;
+    border-radius: 0upx;
+    border-bottom-left-radius: 100upx;
+    border-bottom-right-radius: 100upx;
+    font-size: 8upx;
+}
+ .top_module {
+    white-space: normal;
+    width: 698upx;
+    height: 191upx;
+    padding: 0upx;
+    margin-top: 59upx;
+    margin-left: 26upx;
+    float: left;
+    position: absolute;
+    top: 0upx;
+    left: 0upx;
+    background-color: #ffffff;
+    border-radius: 20upx;
+    font-size: 8upx;
+}
+
+.functions_module {
+    white-space: normal;
+    width: 749upx;
+    height: 1519upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    float: left;
+    background-color: #f5f4f9;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+
+ .module_name {
+    white-space: normal;
+    width: 140upx;
+    height: 31upx;
+    padding: 0upx;
+    margin-top: 8upx;
+    margin-left: 29upx;
+    float: left;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 31upx;
+}
+
+ .hospital_services_14 {
+    white-space: normal;
+    width: 252upx;
+    height: 35upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 38upx;
+    margin-left: 26upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 45upx;
+}
+.module_name_view {
+    white-space: normal;
+    width: 9upx;
+    height: 40upx;
+    padding: 0upx;
+    margin-top: 2upx;
+    margin-left: 2upx;
+    float: left;
+    background-color: #0092fc;
+    border-radius: 0upx;
+    font-size: 44upx;
+    line-height: 40upx;
+}
+
+ .module_space {
+    white-space: normal;
+    width: 698upx;
+    height: 153upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 25upx;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+ .function_name {
+    white-space: normal;
+    width: 130upx;
+    height: 114upx;
+    padding: 0upx;
+    margin-top: 20upx;
+    margin-left: 30upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+ .function_img {
+    white-space: normal;
+    width: 64upx;
+    height: 65upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 0upx;
+    margin-left: 24upx;
+    float: left;
+    border-radius: 0upx;
+    font-size: 63upx;
+    line-height: 65upx;
+}
+ .function_text {
+    white-space: normal;
+    width: 114upx;
+    height: 30upx;
+    padding: 0upx;
+    clear: both;
+    margin-top: 18upx;
+    margin-left: 0upx;
+    float: left;
+    text-align:center;
+    justify-content: center;
+    border-radius: 0upx;
+    color: #646464;
+    font-size: 29upx;
+    line-height: 30upx;
+}
+
+.ex_module_space{
+    white-space: normal;
+    width: 698upx;
+    height: 163upx;
+    padding: 0upx;
+    clear: both;
+    margin-left: 25upx;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 0upx;
+    font-size: 8upx;
+}
+
+
+
+
+
