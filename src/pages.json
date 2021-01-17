@@ -30,7 +30,8 @@
 		{
 			"path":"pages/person/person",
 			"style": {
-				
+				"navigationBarTitleText": "个人信息",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
