@@ -56,11 +56,11 @@
 					url: '../../static/slideshow/slideshow_4.jpg',
 					id: 4
 				}],
-				
+
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
-				
+
 				// 树状图
 				serverDataMix: '',
 				mixName: ['项目考核结果', '论文考核结果', '专利考核结果', '科研考核结果', '著作考核结果'],
@@ -68,7 +68,7 @@
 				maxScore: [32, 43, 242, 52, 51],
 				avgScore: [12, 43, 31, 34, 12],
 				titleName: ['最低考核成绩', '最高考核成绩', '平均考核成绩'],
-				
+
 				//饼图
 				serverDataPie: '',
 				number: {
@@ -185,7 +185,12 @@
 					url: 'https://www.easy-mock.com/mock/5cc586b64fc5576cba3d647b/uni-wx-charts/chartsdata2',
 					data: {},
 					success: (res) => {
-						console.log(res.data.data)
+						uni.getStorage({
+							key: 'token',
+							success: function(res) {
+								console.log(res.data);
+							}
+						});
 						//下面这个根据需要保存后台数据，我是为了模拟更新柱状图，所以存下来了
 						_self.serverDataPie = res.data.data;
 						let Pie = {
@@ -344,13 +349,13 @@
 		height: 500upx;
 		background-color: #FFFFFF;
 	}
-	
+
 	.index-img {
 		width: 100rpx;
 		height: 100rpx;
 		justify-content: center;
 	}
-	
+
 	.index-box {
 		width: 120rpx;
 		height: auto;
