@@ -1,19 +1,20 @@
 import app from "../../App.vue"
 
 // 定义全局参数,控制数据加载
-var _self, page = 1, timer = null;
+var _self, page = 1,
+	timer = null;
 
 export default {
 	data() {
 		return {
 			loadingText: '',
 
-			page: 0,//当前分页页码
-			apiUrl: 'https://www.ymznkf.com/wx_server',//后端接口地址
-			id: '',//传值使用,方便存在本地的locakStorage  
-			del_id: '',//方便存在本地的locakStorage  
+			page: 0, //当前分页页码
+			apiUrl: 'https://www.ymznkf.com/wx_server', //后端接口地址
+			id: '', //传值使用,方便存在本地的locakStorage  
+			del_id: '', //方便存在本地的locakStorage  
 
-			fun_id:'',
+			fun_id: '',
 		}
 	},
 	components: {
@@ -48,170 +49,183 @@ export default {
 		//执行初始化,需要用的时候，可以把注释取掉
 		//this.Refresh("init");
 	},
-	onPullDownRefresh: function () {
+	onPullDownRefresh: function() {
 		//下拉刷新的时候请求一次数据
 		// this.Refresh();
 	},
 	methods: {
 
-		/**
-		* toProjectList处理函数
-		*/
-		toProjectList: function (event) {
-			this.fun_id='11';
+		openLog() {
+			console.log('打开日志');
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
-				success: (res) => {},
-				fail: () => {},
-				complete: () => {},
-			  });
+				url: '/pages/log/log',
+			});
+		},
+		openCollegeInfo() {
+			console.log('打开机构人员');
+			uni.navigateTo({
+				// url: '/pages/'
+			});
 		},
 
 		/**
-		* toFundList处理函数
-		*/
-		toFundList: function (event) {
-			this.fun_id='12';
+		 * toProjectList处理函数
+		 */
+		toProjectList: function(event) {
+			this.fun_id = '11';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toPaperList处理函数
-		*/
-		toPaperList: function (event) {
-			this.fun_id='21';
+		 * toFundList处理函数
+		 */
+		toFundList: function(event) {
+			this.fun_id = '12';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toWorkList处理函数
-		*/
-		toWorkList: function (event) {
-			this.fun_id='22';
+		 * toPaperList处理函数
+		 */
+		toPaperList: function(event) {
+			this.fun_id = '21';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toSicenList处理函数
-		*/
-		toSicenList: function (event) {
-			this.fun_id='23';
+		 * toWorkList处理函数
+		 */
+		toWorkList: function(event) {
+			this.fun_id = '22';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toPatentList处理函数
-		*/
-		toPatentList: function (event) {
-			this.fun_id='24';
+		 * toSicenList处理函数
+		 */
+		toSicenList: function(event) {
+			this.fun_id = '23';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toProjectResult处理函数
-		*/
-		toProjectResult: function (event) {
-			this.fun_id='31';
+		 * toPatentList处理函数
+		 */
+		toPatentList: function(event) {
+			this.fun_id = '24';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toPaperResult处理函数
-		*/
-		toPaperResult: function (event) {
-			this.fun_id='32';
+		 * toProjectResult处理函数
+		 */
+		toProjectResult: function(event) {
+			this.fun_id = '31';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toWorkResult处理函数
-		*/
-		toWorkResult: function (event) {
-			this.fun_id='33';
+		 * toPaperResult处理函数
+		 */
+		toPaperResult: function(event) {
+			this.fun_id = '32';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toScientificResult处理函数
-		*/
-		toScientificResult: function (event) {
-			this.fun_id='34';
+		 * toWorkResult处理函数
+		 */
+		toWorkResult: function(event) {
+			this.fun_id = '33';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toPatentResult处理函数
-		*/
-		toPatentResult: function (event) {
-			this.fun_id='35';
+		 * toScientificResult处理函数
+		 */
+		toScientificResult: function(event) {
+			this.fun_id = '34';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
 		},
 
 		/**
-		* toTeam处理函数
-		*/
-		toTeam: function (event) {
-			this.fun_id='41';
+		 * toPatentResult处理函数
+		 */
+		toPatentResult: function(event) {
+			this.fun_id = '35';
 			uni.navigateTo({
-				url: "/pages/list/list?fun_id="+this.fun_id,
+				url: "/pages/list/list?fun_id=" + this.fun_id,
 				success: (res) => {},
 				fail: () => {},
 				complete: () => {},
-			  });
+			});
+		},
+
+		/**
+		 * toTeam处理函数
+		 */
+		toTeam: function(event) {
+			this.fun_id = '41';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id=" + this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			});
 		},
 
 		//刷新数据
-		Refresh: function (_action) {
+		Refresh: function(_action) {
 
 			uni.showLoading();
 
@@ -220,20 +234,20 @@ export default {
 			var url = that.apiUrl + '{server_code_file_path}';
 			console.log(url);
 			uni.request({
-				url: url,//后端接口地址，需要改成自己的接口地址
+				url: url, //后端接口地址，需要改成自己的接口地址
 				data: {
-					action: _action,//上传动作，如按钮点击会产生click动作，分页也会产生，在后端根据具体的动作来判断事件
-					uid: that.getUid(),//上传用户id,在登录中获得
+					action: _action, //上传动作，如按钮点击会产生click动作，分页也会产生，在后端根据具体的动作来判断事件
+					uid: that.getUid(), //上传用户id,在登录中获得
 					//上传页面中的变量
 					//定义变量---start
 
 					//定义变量---end
-					id: that.id,//上传id值，后端可以根据此值来操作当前id
-					del_id: that.del_id,//在列表中删除按钮选中时，上传到有后端，进行删除操作
+					id: that.id, //上传id值，后端可以根据此值来操作当前id
+					del_id: that.del_id, //在列表中删除按钮选中时，上传到有后端，进行删除操作
 					page: that.page
 				},
 				method: 'GET',
-				success: function (res) {//后端返回数据
+				success: function(res) { //后端返回数据
 
 					// 隐藏导航栏加载框  
 					uni.hideNavigationBarLoading();
@@ -250,7 +264,9 @@ export default {
 
 					}
 
-					{ deal_listpages }
+					{
+						deal_listpages
+					}
 
 
 
@@ -271,7 +287,7 @@ export default {
 					}
 
 				},
-				fail: function (res) {
+				fail: function(res) {
 					uni.showToast({
 						title: "服务器访问失败",
 						icon: 'none',

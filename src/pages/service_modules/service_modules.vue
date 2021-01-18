@@ -267,28 +267,9 @@
 </template>
 
 <script>
+	import service_modules from './service_modules.js'
 	
-	export default {
-		data() {
-			return {
-				
-			};
-		},
-		methods: {
-			openLog() {
-				console.log('打开日志');
-				uni.navigateTo({
-					url: '/pages/log/log',
-				});
-			},
-			openCollegeInfo() {
-				console.log('打开机构人员');
-				uni.navigateTo({
-					// url: '/pages/'
-				});
-			}
-		}
-	}
+	export default service_modules;
 
 </script>
 
