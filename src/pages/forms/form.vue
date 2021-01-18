@@ -26,6 +26,10 @@
 		methods: {
 			
 		},
+		onLoad(option) {
+			console.log(option.form)
+			this.form = option.form;
+		},
 		components: {
 			paper,
 			patent,

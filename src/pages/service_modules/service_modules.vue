@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <view class="YmContent">
     <!-- 头部 -->
     <view class="top_space">
@@ -209,6 +209,40 @@
           >
         </view>
       </view>
+	  
+	  <!-- 机构管理 -->
+	  <view class="hospital_services_14">
+	    <view class="module_name_view"> </view>
+	    <text decode="true" class="module_name">机构人员</text>
+	  </view>
+	  <view class="module_space">
+	    <view class="function_name">
+	      <image
+	        v-on:click="openCollegeInfo"
+	        src="/static/modules_img/collegeIcon.png"
+	        border="0"
+	        class="function_img"
+	      ></image>
+	      <text decode="true" class="function_text">机构人员</text>
+	    </view>
+	  </view>
+	  
+	  <!-- 日志管理 -->
+	  <view class="hospital_services_14">
+	    <view class="module_name_view"> </view>
+	    <text decode="true" class="module_name">日志管理</text>
+	  </view>
+	  <view class="module_space">
+	    <view class="function_name">
+	      <image
+	        v-on:click="openLog"
+	        src="/static/modules_img/log.png"
+	        border="0"
+	        class="function_img"
+	      ></image>
+	      <text decode="true" class="function_text">日志</text>
+	    </view>
+	  </view>
 
       <!-- 权限管理 -->
       <view class="hospital_services_14">
@@ -227,13 +261,16 @@
           <text decode="true" class="function_text">权限</text>
         </view>
       </view>
+	  
     </view>
   </view>
 </template>
 
 <script>
-import service_modules from "./service_modules.js";
-export default service_modules;
+	import service_modules from './service_modules.js'
+	
+	export default service_modules;
+
 </script>
 
 <style lang="scss" scoped>

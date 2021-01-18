@@ -4,6 +4,8 @@
 			<gpp-configurationForm ref="form" type="fill" :formTemplate="formTemplate" :formValue="project" :isCard="true"></gpp-configurationForm>
 		</view>
 		
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
+
 		<view class="margin-top margin-bottom">
 			<cc-button @cctap="save" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
 			 :loading="isloading" fontsize="34rpx">提交</cc-button>
@@ -14,31 +16,33 @@
 </template>
 
 <script>
+	import helper from '../../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
 				isloading: false,
 				project: {
-					id: null, //著作编号
 					name: null, //著作名称
+					id: null, //著作编号
 					userId: null, //负责人
-					collegeId: null, //所属学院
+					publisher: null, //出版单位
+					publishLevel: null, //出版社级别
+					workType: null, //著作类别
+					publishLocation: null, //出版地
+					isbnId: null, //ISBN号
+					isTranslate: null, //是否翻译
+					translateLanguage: null, //翻译语种
 					discipline: null, //学科门类
-					characters: null, //著作性质
+					beginDate: null, //建设日期
+					isDisabled: null, //研究类别
 					firstDiscipline: null, //一级学科
-					level: null, //著作级别
-					sort: null, //著作分类
-					beginDate: null, //立项日期
-					endDate: null, //结项日期
-					requestFund: null, //著作申请经费
-					arrivalFund: null, //到账金额
-					state: null, //审核状态
-					approvalNumber: null, //批准文号
-					information: null, //著作信息
+					collegeId: null, //成果归属
+					workSource: null, //项目来源
+					information: null, //详细信息    
 				},
 				formTemplate: [{
-					formTitle: "著作表单",
-					id: "469823830580379648",
+					formTitle: "著作申报表单",
 					object: [{
 						textName: "name",
 						subject: "著作名称",
@@ -54,13 +58,6 @@
 						isMustfill: true,
 						placeholder: "请输入著作编号"
 					}, {
-						textName: "approvalNumber",
-						subject: "批准文号",
-						controlType: "text",
-						maxlength: 14,
-						isMustfill: true,
-						placeholder: "请输入批准文号"
-					}, {
 						textName: "userId",
 						subject: "负责人学工号",
 						controlType: "text",
@@ -68,118 +65,147 @@
 						isMustfill: true,
 						placeholder: "请输入负责人学工号"
 					}, {
-						textName: "collegeId",
-						subject: "所属学院",
-						controlType: "select",
+						textName: "publisher",
+						subject: "出版单位",
+						controlType: "text",
+						maxlength: 14,
 						isMustfill: true,
+						placeholder: "请输入出版单位"
+					}, {
+						textName: "publishLevel",
+						subject: "出版社级别",
+						controlType: "select",
 						values: [{
-							valueName: "所属学院一",
+							valueName: "国家级出版社",
 							valueCode: "1"
 						}, {
-							valueName: "所属学院二",
+							valueName: "省级出版社",
 							valueCode: "2"
 						}]
 					}, {
-						textName: "firstDiscipline",
-						subject: "一级学科",
+						textName: "workType",
+						subject: "著作类别",
 						controlType: "select",
-						isMustfill: true,
 						values: [{
-							valueName: "一级学科一",
+							valueName: "科研类",
 							valueCode: "1"
 						}, {
-							valueName: "一级学科二",
+							valueName: "发明类",
 							valueCode: "2",
 						}]
 					}, {
-						textName: "level",
-						subject: "著作级别",
+						textName: "publishLocation",
+						subject: "出版地",
 						controlType: "select",
-						isMustfill: true,
 						values: [{
-							valueName: "著作级别一",
+							valueName: "国内",
 							valueCode: "1"
 						}, {
-							valueName: "著作级别二",
+							valueName: "国外",
 							valueCode: "2"
 						}]
 					}, {
-						textName: "characters",
-						subject: "著作性质",
-						controlType: "radio",
+						textName: "isbnId",
+						subject: "ISBN号",
+						controlType: "text",
+						maxlength: 14,
 						isMustfill: true,
+						placeholder: "请输入ISBN号"
+					}, {
+						textName: "isTranslate",
+						subject: "是否翻译",
+						controlType: "radio",
 						values: [{
-							valueName: "著作性质一",
+							valueName: "是",
 							valueCode: "1"
 						}, {
-							valueName: "著作性质二",
+							valueName: "否",
 							valueCode: "2"
 						}]
 					}, {
-						textName: "state",
-						subject: "著作状态",
-						controlType: "radio",
-						isMustfill: true,
+						textName: "translateLanguage",
+						subject: "翻译语种",
+						controlType: "select",
 						values: [{
-							valueName: "著作状态一",
+							valueName: "英语",
 							valueCode: "1"
 						}, {
-							valueName: "著作状态二",
+							valueName: "法语",
 							valueCode: "2"
 						}]
 					}, {
 						textName: "discipline",
 						subject: "学科门类",
 						controlType: "radio",
-						isMustfill: true,
 						values: [{
-							valueName: "学科门类一",
+							valueName: "理工类",
 							valueCode: "1"
 						}, {
-							valueName: "学科门类二",
-							valueCode: "2"
-						}]
-					},  {
-						textName: "sort",
-						subject: "著作分类",
-						controlType: "select",
-						isMustfill: true,
-						values: [{
-							valueName: "著作分类一",
-							valueCode: "1"
-						}, {
-							valueName: "著作分类二",
+							valueName: "社科类",
 							valueCode: "2"
 						}]
 					}, {
 						textName: "beginDate",
-						subject: "立项日期",
+						subject: "建设时间",
 						controlType: "date",
 						isMustfill: true
 					}, {
-						textName: "endDate",
-						subject: "结项日期",
-						controlType: "date",
+						textName: "isDisabled",
+						subject: "研究类别",
+						controlType: "radio",
+						values: [{
+							valueName: "基础研究",
+							valueCode: "1"
+						}, {
+							valueName: "应用研究",
+							valueCode: "2"
+						}]
 					}, {
-						textName: "requestFund",
-						subject: "申请经费",
-						controlType: "number",
-						maxlength: 14,
-						isMustfill: true,
-						placeholder: "请输入申请经费"
+						textName: "firstDiscipline",
+						subject: "一级学科",
+						controlType: "select",
+						values: [{
+							valueName: "工科",
+							valueCode: "1"
+						}, {
+							valueName: "理科",
+							valueCode: "2"
+						}]
 					}, {
-						textName: "arrivalFund",
-						subject: "到账经费",
-						controlType: "number",
-						maxlength: 14,
+						textName: "collegeId",
+						subject: "成果归属",
+						controlType: "select",
 						isMustfill: true,
-						placeholder: "请输入到账经费"
+						values: [{
+							valueName: "计算机科学学院",
+							valueCode: "1013"
+						}, {
+							valueName: "物电",
+							valueCode: "1014"
+						}, {
+							valueName: "音乐学院",
+							valueCode: "1012"
+						}, {
+							valueName: "语文学院",
+							valueCode: "1011"
+						}, ]
+					}, {
+						textName: "workSource",
+						subject: "项目来源",
+						controlType: "select",
+						values: [{
+							valueName: "国家派发",
+							valueCode: "1"
+						}, {
+							valueName: "自研",
+							valueCode: "2"
+						}]
 					}, {
 						textName: "information",
-						subject: "著作信息",
+						subject: "详细信息",
 						controlType: "textarea",
 						maxlength: 100,
-						placeholder: "请输入著作信息"
+						placeholder: "请输入详细信息"
 					}]
 				}]
 			}
@@ -190,11 +216,54 @@
 				let result = this.$refs.form.submit();
 				if (result.checkFlag) {
 					console.log(result.value);
-					console.log(this.number);
-					uni.showToast({
-						title: "验证成功"
-					})
-					this.isloading = false;
+
+					var token = uni.getStorageSync('token');
+					var userId = uni.getStorageSync('userId');
+
+					uni.request({
+						url: this.$api + '/mangerModel/achievements/work',
+						method: 'POST',
+						data: {
+							name: result.value.name, //著作名称
+							id: result.value.id, //著作编号
+							userId: result.value.userId, //负责人
+							publisher: result.value.publisher, //出版单位
+							publishLevel: result.value.publishLevel, //出版社级别
+							workType: result.value.workType, //著作类别
+							publishLocation: result.value.publishLocation, //出版地
+							isbnId: result.value.isbnId, //ISBN号
+							isTranslate: 0, //是否翻译
+							translateLanguage: result.value.translateLanguage, //翻译语种
+							discipline: '0', //学科门类
+							beginDate: result.value.beginDate, //建设日期
+							isDisabled: '1', //研究类别
+							firstDiscipline: result.value.firstDiscipline, //一级学科
+							collegeId: result.value.collegeId, //成果归属
+							workSource: result.value.workSource, //项目来源
+							information: result.value.information, //详细信息    
+						},
+						header: {
+							'authorization': token
+						},
+						success: (res) => {
+							console.log(res);
+							this.isloading = false;
+							if (res.data.resultCode == '0') {
+								helper.successPop(this, '申报成功', 1500);
+								uni.navigateBack()
+								// uni.navigateTo({
+								// 	url: '../../../pages/index/index'
+								// })
+							} else {
+								helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
+							}
+						},
+						fail: (res) => {
+							helper.errorPop(this, '网络错误，请检查网络', 1500);
+							this.isloading = false;
+						}
+					});
+
 				} else {
 					uni.showToast({
 						title: result.message,
@@ -211,7 +280,7 @@
 	.margin-top {
 		margin-top: 50rpx;
 	}
-	
+
 	.margin-bottom {
 		margin-bottom: 60rpx;
 	}

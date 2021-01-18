@@ -79,6 +79,20 @@
 					}
 				}
 			}
+		},
+		{
+			"path":"pages/log/log",
+			"style": {
+				"navigationBarTitleText":"日志管理",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path":"pages/log/logInfo",
+			"style": {
+				"navigationBarTitleText":"日志管理",
+				"enablePullDownRefresh": true
+			}
 		}
 	],
 	"globalStyle": {

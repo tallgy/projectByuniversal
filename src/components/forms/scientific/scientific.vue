@@ -4,6 +4,8 @@
 			<gpp-configurationForm ref="form" type="fill" :formTemplate="formTemplate" :formValue="project" :isCard="true"></gpp-configurationForm>
 		</view>
 		
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
+
 		<view class="margin-top margin-bottom">
 			<cc-button @cctap="save" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
 			 :loading="isloading" fontsize="34rpx">提交</cc-button>
@@ -14,31 +16,30 @@
 </template>
 
 <script>
+	import helper from '../../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
 				isloading: false,
 				project: {
-					id: null, //科研编号
 					name: null, //科研名称
-					userId: null, //负责人
+					id: null, //科研编号
 					collegeId: null, //所属学院
+					beginDate: null, //发布时间
+					userId: null, //负责人
+					isTranslate: null, //是否翻译
+					translateLanguage: null, //翻译语种
+					firstDiscipline: null, //一级学科
 					discipline: null, //学科门类
 					characters: null, //科研性质
-					firstDiscipline: null, //一级学科
-					level: null, //科研级别
-					sort: null, //科研分类
-					beginDate: null, //立项日期
-					endDate: null, //结项日期
-					requestFund: null, //科研申请经费
-					arrivalFund: null, //到账金额
-					state: null, //审核状态
-					approvalNumber: null, //批准文号
-					information: null, //科研信息
+					workType: null, //研究类别
+					workSource: null, //项目来源
+					information: null, //详细信息
+
 				},
 				formTemplate: [{
-					formTitle: "科研表单",
-					id: "469823830580379648",
+					formTitle: "科研申报表单",
 					object: [{
 						textName: "name",
 						subject: "科研名称",
@@ -54,132 +55,105 @@
 						isMustfill: true,
 						placeholder: "请输入科研编号"
 					}, {
-						textName: "approvalNumber",
-						subject: "批准文号",
-						controlType: "text",
-						maxlength: 14,
-						isMustfill: true,
-						placeholder: "请输入批准文号"
+						textName: "collegeId",
+						subject: "成果归属",
+						controlType: "select",
+						values: [{
+							valueName: "计算机科学学院",
+							valueCode: "1013"
+						}, {
+							valueName: "物电",
+							valueCode: "1014"
+						}, {
+							valueName: "音乐学院",
+							valueCode: "1012"
+						}, {
+							valueName: "语文学院",
+							valueCode: "1011"
+						}, ]
+					}, {
+						textName: "beginDate",
+						subject: "发布时间",
+						controlType: "date",
+						isMustfill: true
 					}, {
 						textName: "userId",
-						subject: "负责人学工号",
+						subject: "作者",
 						controlType: "text",
 						maxlength: 14,
 						isMustfill: true,
-						placeholder: "请输入负责人学工号"
+						placeholder: "请输入作者"
 					}, {
-						textName: "collegeId",
-						subject: "所属学院",
-						controlType: "select",
-						isMustfill: true,
+						textName: "isTranslate",
+						subject: "是否翻译",
+						controlType: "radio",
 						values: [{
-							valueName: "所属学院一",
+							valueName: "是",
 							valueCode: "1"
 						}, {
-							valueName: "所属学院二",
+							valueName: "否",
+							valueCode: "2",
+						}]
+					}, {
+						textName: "translateLanguage",
+						subject: "翻译语种",
+						controlType: "select",
+						values: [{
+							valueName: "英语",
+							valueCode: "1"
+						}, {
+							valueName: "法语",
 							valueCode: "2"
 						}]
 					}, {
 						textName: "firstDiscipline",
 						subject: "一级学科",
 						controlType: "select",
-						isMustfill: true,
 						values: [{
-							valueName: "一级学科一",
+							valueName: "工科",
 							valueCode: "1"
 						}, {
-							valueName: "一级学科二",
-							valueCode: "2",
-						}]
-					}, {
-						textName: "level",
-						subject: "科研级别",
-						controlType: "select",
-						isMustfill: true,
-						values: [{
-							valueName: "科研级别一",
-							valueCode: "1"
-						}, {
-							valueName: "科研级别二",
-							valueCode: "2"
-						}]
-					}, {
-						textName: "characters",
-						subject: "科研性质",
-						controlType: "radio",
-						isMustfill: true,
-						values: [{
-							valueName: "科研性质一",
-							valueCode: "1"
-						}, {
-							valueName: "科研性质二",
-							valueCode: "2"
-						}]
-					}, {
-						textName: "state",
-						subject: "科研状态",
-						controlType: "radio",
-						isMustfill: true,
-						values: [{
-							valueName: "科研状态一",
-							valueCode: "1"
-						}, {
-							valueName: "科研状态二",
+							valueName: "理科",
 							valueCode: "2"
 						}]
 					}, {
 						textName: "discipline",
 						subject: "学科门类",
 						controlType: "radio",
-						isMustfill: true,
 						values: [{
-							valueName: "学科门类一",
+							valueName: "理工类",
 							valueCode: "1"
 						}, {
-							valueName: "学科门类二",
+							valueName: "社科类",
 							valueCode: "2"
 						}]
-					},  {
-						textName: "sort",
-						subject: "科研分类",
+					}, {
+						textName: "workType",
+						subject: "研究类别",
 						controlType: "select",
-						isMustfill: true,
 						values: [{
-							valueName: "科研分类一",
+							valueName: "前沿新技术",
 							valueCode: "1"
 						}, {
-							valueName: "科研分类二",
+							valueName: "现有技术",
 							valueCode: "2"
 						}]
 					}, {
-						textName: "beginDate",
-						subject: "立项日期",
-						controlType: "date",
-						isMustfill: true
-					}, {
-						textName: "endDate",
-						subject: "结项日期",
-						controlType: "date",
-					}, {
-						textName: "requestFund",
-						subject: "申请经费",
-						controlType: "number",
-						maxlength: 14,
-						isMustfill: true,
-						placeholder: "请输入申请经费"
-					}, {
-						textName: "arrivalFund",
-						subject: "到账经费",
-						controlType: "number",
-						maxlength: 14,
-						isMustfill: true,
-						placeholder: "请输入到账经费"
+						textName: "workSource",
+						subject: "项目来源",
+						controlType: "select",
+						values: [{
+							valueName: "自研",
+							valueCode: "1"
+						}, {
+							valueName: "分配",
+							valueCode: "2"
+						}]
 					}, {
 						textName: "information",
-						subject: "科研信息",
+						subject: "详细信息",
 						controlType: "textarea",
 						maxlength: 100,
-						placeholder: "请输入科研信息"
 					}]
 				}]
 			}
@@ -190,11 +164,50 @@
 				let result = this.$refs.form.submit();
 				if (result.checkFlag) {
 					console.log(result.value);
-					console.log(this.number);
-					uni.showToast({
-						title: "验证成功"
-					})
-					this.isloading = false;
+
+					var token = uni.getStorageSync('token');
+					var userId = uni.getStorageSync('userId');
+
+					uni.request({
+						url: this.$api + '/mangerModel/achievements/scientific',
+						method: 'POST',
+						data: {
+							name: result.value.name, //科研名称
+							id: result.value.id, //科研编号
+							collegeId: result.value.collegeId, //所属学院
+							beginDate: result.value.beginDate, //发布时间
+							userId: result.value.userId, //负责人
+							isTranslate: 0, //是否翻译
+							translateLanguage: result.value.translateLanguage, //翻译语种
+							firstDiscipline: result.value.firstDiscipline, //一级学科
+							discipline: '1', //学科门类
+							characters: result.value.characters, //科研性质
+							workType: result.value.workType, //研究类别
+							workSource: result.value.workSource, //项目来源
+							information: result.value.information, //详细信息
+						},
+						header: {
+							'authorization': token
+						},
+						success: (res) => {
+							console.log(res);
+							this.isloading = false;
+							if (res.data.resultCode == '0') {
+								helper.successPop(this, '申报成功', 1500);
+								uni.navigateBack()
+								// uni.navigateTo({
+								// 	url: '../../../pages/index/index'
+								// })
+							} else {
+								helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
+							}
+						},
+						fail: (res) => {
+							helper.errorPop(this, '网络错误，请检查网络', 1500);
+							this.isloading = false;
+						}
+					});
+
 				} else {
 					uni.showToast({
 						title: result.message,
@@ -211,7 +224,7 @@
 	.margin-top {
 		margin-top: 50rpx;
 	}
-	
+
 	.margin-bottom {
 		margin-bottom: 60rpx;
 	}
