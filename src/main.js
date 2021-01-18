@@ -11,7 +11,7 @@ import buildFullPath from 'axios/lib/core/buildFullPath';
 import createError from 'axios/lib/core/createError';
 
 Vue.config.productionTip = false
-Vue.prototype.$api='http://192.168.1.102:8888'
+Vue.prototype.$api='http://192.168.43.229:8888'
 // Vue.use(VueResource)
 
 App.mpType = 'app'

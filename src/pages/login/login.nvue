@@ -161,6 +161,9 @@ export default {
           url: this.$api + "/login", //仅为示例，并非真实接口地址。
           method: "POST",
           dataType: "json",
+          header:{
+            "authorization":" "
+          },
           data: {
             username: this.user.username,
             password: this.user.password,
