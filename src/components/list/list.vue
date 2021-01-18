@@ -115,7 +115,7 @@ export default {
 
         //处理参数
         let { url, params } = this.options;
-        params = typeof params === "function" ? params() : params; // 如果params是个方法，则调用方法获取值
+        // params = typeof params === "function" ? params() : params; // 如果params是个方法，则调用方法获取值
         // 更新页数
         this.pi = params.pi || this.pi;
         this.ps = params.ps || this.ps;

@@ -98,7 +98,6 @@
 				uni.showLoading({
 					title: '正在加载。。。'
 				})
-
 				uni.request({
 					url: this.$api + '/mangerModel/home/assessmentresult',
 					method: 'POST',

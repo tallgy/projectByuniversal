@@ -162,7 +162,7 @@ export default {
 		* toWorkResult处理函数
 		*/
 		toWorkResult: function (event) {
-			this.fun_id='32';
+			this.fun_id='33';
 			uni.navigateTo({
 				url: "/pages/list/list?fun_id="+this.fun_id,
 				success: (res) => {},
@@ -175,7 +175,7 @@ export default {
 		* toScientificResult处理函数
 		*/
 		toScientificResult: function (event) {
-			this.fun_id='32';
+			this.fun_id='34';
 			uni.navigateTo({
 				url: "/pages/list/list?fun_id="+this.fun_id,
 				success: (res) => {},
@@ -188,7 +188,7 @@ export default {
 		* toPatentResult处理函数
 		*/
 		toPatentResult: function (event) {
-			this.fun_id='32';
+			this.fun_id='35';
 			uni.navigateTo({
 				url: "/pages/list/list?fun_id="+this.fun_id,
 				success: (res) => {},
@@ -201,7 +201,7 @@ export default {
 		* toTeam处理函数
 		*/
 		toTeam: function (event) {
-			this.fun_id='32';
+			this.fun_id='41';
 			uni.navigateTo({
 				url: "/pages/list/list?fun_id="+this.fun_id,
 				success: (res) => {},
