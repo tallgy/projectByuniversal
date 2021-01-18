@@ -75,7 +75,7 @@ export default {
       return new Promise((resolve, reject) => {
         uni.showToast({
           icon: "none",
-          title: `获取${url}的第${params.pi}页的${params.ps}条数据`,
+          title: `获取服务器的第${params.pi}页的${params.ps}条数据`,
         });
 
         var token = uni.getStorageSync("token");

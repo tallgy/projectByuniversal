@@ -1,11 +1,10 @@
-
 var List = new Map([
     ["11", "/mangerModel/projects/users/2018110110"],
     ["12", "/mangerModel/funds/users/2018110110"],
 
     ["21", "/mangerModel/achievements/paper/users/2018110110"],
     ["22", "/mangerModel/achievements/work/users/2018110110"],
-    ["23", "/mangerModel/achievements/scientific/users/2018110110"],
+    ["23", "http://192.168.43.229:9095/achievements/scientific/users/2018110110"],
     ["24", "/mangerModel/achievements/patent/users/2018110110"],
 
     ["31", "/mangerModel/assess/projects/user/2018110110"],

@@ -25,14 +25,22 @@ export default {
       list: [],
       showToTop: false,
       list_data:"",
+      
       // name_list:[["11","name"],["12","projectName"]],
       name:"",
     };
   },
   computed: {
     options() {
+      var base_url
+      if (this.list_data == "23") {
+        base_url=List.List.get(this.list_data)
+      }
+      else{
+        base_url=this.$api + List.List.get(this.list_data)
+      }
       return {
-        url: this.$api + List.List.get(this.list_data),
+        url: base_url,
         params: {},
         // this.$api + 
       };
