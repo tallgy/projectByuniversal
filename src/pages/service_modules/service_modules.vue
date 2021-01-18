@@ -115,59 +115,78 @@
       <view class="module_space">
         <view class="function_name">
           <image
-            v-on:click="hospital_services_58_58_click()"
+            v-on:click="toProjectResult()"
             src="/static/modules_img/project_check_result.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">项目考核</text>
+          <text
+            decode="true"
+            class="function_text"
+            v-on:click="toProjectResult()"
+            >项目考核</text
+          >
         </view>
 
         <view class="function_name">
           <image
-            v-on:click="hospital_services_59_59_click()"
+            v-on:click="toPaperResult()"
             src="/static/modules_img/papers_check_result.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">论文考核</text>
+          <text decode="true" class="function_text" v-on:click="toPaperResult()"
+            >论文考核</text
+          >
         </view>
 
         <view class="function_name">
           <image
-            v-on:click="hospital_services_59_59_click()"
+            v-on:click="toWorkResult()"
             src="/static/modules_img/works_check_result.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">著作考核</text>
+          <text decode="true" class="function_text" v-on:click="toWorkResult()"
+            >著作考核</text
+          >
         </view>
 
         <view class="function_name">
           <image
-            v-on:click="hospital_services_59_59_click()"
+            v-on:click="toScientificResult()"
             src="/static/modules_img/scientific_check_result.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">科研考核</text>
+          <text
+            decode="true"
+            class="function_text"
+            v-on:click="toScientificResult()"
+            >科研考核</text
+          >
         </view>
       </view>
 
       <view class="ex_module_space">
         <view class="function_name">
           <image
-            v-on:click="hospital_services_59_59_click()"
+            v-on:click="toPatentResult()"
             src="/static/modules_img/patents_check_result.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">专利考核</text>
+          <text
+            decode="true"
+            class="function_text"
+            v-on:click="toPatentResult()"
+            >专利考核</text
+          >
         </view>
       </view>
 
@@ -179,15 +198,51 @@
       <view class="module_space">
         <view class="function_name">
           <image
-            v-on:click="hospital_services_59_59_click()"
+            v-on:click="toTeam()"
             src="/static/modules_img/team.png"
             mode="scaleToFill"
             border="0"
             class="function_img"
           ></image>
-          <text decode="true" class="function_text">团队成员</text>
+          <text decode="true" class="function_text" v-on:click="toTeam()"
+            >团队成员</text
+          >
         </view>
       </view>
+	  
+	  <!-- 机构管理 -->
+	  <view class="hospital_services_14">
+	    <view class="module_name_view"> </view>
+	    <text decode="true" class="module_name">机构人员</text>
+	  </view>
+	  <view class="module_space">
+	    <view class="function_name">
+	      <image
+	        v-on:click="openCollegeInfo"
+	        src="/static/modules_img/collegeIcon.png"
+	        border="0"
+	        class="function_img"
+	      ></image>
+	      <text decode="true" class="function_text">机构人员</text>
+	    </view>
+	  </view>
+	  
+	  <!-- 日志管理 -->
+	  <view class="hospital_services_14">
+	    <view class="module_name_view"> </view>
+	    <text decode="true" class="module_name">日志管理</text>
+	  </view>
+	  <view class="module_space">
+	    <view class="function_name">
+	      <image
+	        v-on:click="openLog"
+	        src="/static/modules_img/log.png"
+	        border="0"
+	        class="function_img"
+	      ></image>
+	      <text decode="true" class="function_text">日志</text>
+	    </view>
+	  </view>
 
       <!-- 权限管理 -->
       <view class="hospital_services_14">
@@ -207,24 +262,6 @@
         </view>
       </view>
 	  
-	  <!-- 日志管理 -->
-	  <view class="hospital_services_14">
-	    <view class="module_name_view"> </view>
-	    <text decode="true" class="module_name">日志管理</text>
-	  </view>
-	  <view class="module_space">
-	    <view class="function_name">
-	      <image
-	        v-on:click="openLog"
-	        src="/static/log/log.png"
-	        border="0"
-	        class="function_img"
-	      ></image>
-	      <text decode="true" class="function_text">日志</text>
-	    </view>
-	  </view>
-	  
-	  
     </view>
   </view>
 </template>
@@ -242,11 +279,17 @@
 				console.log('打开日志');
 				uni.navigateTo({
 					url: '/pages/log/log',
-				})
+				});
+			},
+			openCollegeInfo() {
+				console.log('打开机构人员');
+				uni.navigateTo({
+					// url: '/pages/'
+				});
 			}
 		}
 	}
-	
+
 </script>
 
 <style lang="scss" scoped>

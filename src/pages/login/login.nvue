@@ -7,11 +7,11 @@
 
 			<view class="vs-row vs-align-center">
 				<view class="vs-column vs-align-center margin-r40" @click="cur = 0">
-					<text class="font-50 margin-b20" :class="[cur ? 'color-black-3': 'color-base']">登录</text>
+					<text class="font-50 margin-b20" :class="[cur ? 'color-black-3' : 'color-base']">登录</text>
 					<view class="line bg-color-base" v-if="!cur"></view>
 				</view>
 				<view class="vs-column vs-align-center" @click="cur = 1">
-					<text class="font-46 margin-b20" :class="[cur ? 'color-base': 'color-black-3']">注册</text>
+					<text class="font-46 margin-b20" :class="[cur ? 'color-base' : 'color-black-3']">注册</text>
 					<view class="line bg-color-base" v-if="cur"></view>
 				</view>
 			</view>
@@ -49,7 +49,7 @@
 
 		<view class="margin-top">
 			<cc-button @cctap="login" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
-			 :loading="isloading" fontsize="34rpx">立即{{ cur ? '注册': '登录' }}</cc-button>
+			 :loading="isloading" fontsize="34rpx">立即{{ cur ? "注册" : "登录" }}</cc-button>
 			<!-- 遮罩层 -->
 			<mask v-if="isloading"></mask>
 		</view>
@@ -89,8 +89,42 @@
 				right: null,
 			}
 		},
-		onLoad: (res) => {
+		onLoad(res) {
 			console.log(uni.getStorageSync('token'));
+			var token = uni.getStorageSync('token');
+			var userId = uni.getStorageSync('userId');
+			if (token != null) {
+				//自动登录，判断token的时间是否过期
+				uni.showLoading({
+					title: '正在加载。。。'
+				})
+
+				uni.request({
+					url: this.$api + '/mangerModel/home/assessmentresult',
+					method: 'POST',
+					data: {
+						userId: userId
+					},
+					header: {
+						'authorization': token,
+					},
+					success: (res) => {
+						console.log(res.data)
+						uni.hideLoading();
+						if (res.data.resultCode == '0') {
+							//可以自动登录
+							this.loginSuccess();
+						} else {
+							uni.hideLoading();
+							helper.warnPop(this, '登录认证失效，请重新登录', 1500);
+						}
+					},
+					fail: () => {
+						uni.hideLoading();
+						helper.errorPop(this, '网络或服务器错误！', 1500);
+					},
+				});
+			}
 		},
 		methods: {
 			login() {
@@ -100,45 +134,45 @@
 					helper.warnPop(this, '请输入用户名和密码！', 1500)
 					this.isloading = false;
 				} else {
-					this.loginSuccess()
-					// uni.request({
-					// 	url: this.$api + '/login', //仅为示例，并非真实接口地址。
-					// 	method: 'POST',
-					// 	dataType: "json",
-					// 	data: {
-					// 		username: this.user.username,
-					// 		password: this.user.password
-					// 	},
-					// 	header: {
-					// 		"content-type": "application/json"
-					// 	},
-					// 	success: (res) => {
-					// 		console.log(res.data);
-					// 		if (res.data.resultCode == '0') {
-					// 			//登录成功
-					// 			uni.setStorage({
-					// 				key: 'token',
-					// 				data: res.data.resultMsg
-					// 			});
-					// 			uni.setStorage({
-					// 				key: 'right',
-					// 				data: res.data.data
-					// 			});
-					// 			uni.setStorage({
-					// 				key: 'userId',
-					// 				data: this.user.username
-					// 			});
-					// 			this.loginSuccess();
-					// 		} else {
-					// 			this.isloading = false;
-					// 			helper.errorPop(this, '登录失败，账号或密码错误！', 1500);
-					// 		}
-					// 	},
-					// 	fail: (res) => {
-					// 		this.isloading = false;
-					// 		helper.errorPop(this, '网络错误，请稍后再试');
-					// 	}
-					// });
+					// this.loginSuccess()
+					uni.request({
+						url: this.$api + '/login', //仅为示例，并非真实接口地址。
+						method: 'POST',
+						dataType: "json",
+						data: {
+							username: this.user.username,
+							password: this.user.password
+						},
+						header: {
+							"content-type": "application/json"
+						},
+						success: (res) => {
+							console.log(res.data);
+							if (res.data.resultCode == '0') {
+								//登录成功
+								uni.setStorage({
+									key: 'token',
+									data: res.data.resultMsg
+								});
+								uni.setStorage({
+									key: 'right',
+									data: res.data.data
+								});
+								uni.setStorage({
+									key: 'userId',
+									data: this.user.username
+								});
+								this.loginSuccess();
+							} else {
+								this.isloading = false;
+								helper.errorPop(this, '登录失败，账号或密码错误！', 1500);
+							}
+						},
+						fail: (res) => {
+							this.isloading = false;
+							helper.errorPop(this, '网络错误，请稍后再试');
+						}
+					});
 				}
 			},
 			loginSuccess() {
@@ -194,7 +228,7 @@
 	}
 
 	.bg-color-base {
-		background-color: #007AFF;
+		background-color: #007aff;
 	}
 
 	.line {

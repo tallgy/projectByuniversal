@@ -4,6 +4,8 @@
 			<gpp-configurationForm ref="form" type="fill" :formTemplate="formTemplate" :formValue="project" :isCard="true"></gpp-configurationForm>
 		</view>
 		
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
+		
 		<view class="margin-top margin-bottom">
 			<cc-button @cctap="save" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
 			 :loading="isloading" fontsize="34rpx">提交</cc-button>
@@ -14,6 +16,8 @@
 </template>
 
 <script>
+	import helper from '../../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
@@ -212,8 +216,8 @@
 							name: result.value.name, //项目名称
 							userId: result.value.userId, //负责人
 							collegeId: result.value.collegeId, //所属学院
-							discipline: result.value.discipline, //学科门类
-							characters: result.value.characters, //项目性质
+							discipline: '1', //学科门类
+							characters: '0', //项目性质
 							firstDiscipline: result.value.firstDiscipline, //一级学科
 							level: result.value.level, //项目级别
 							sort: result.value.sort, //项目分类
@@ -221,7 +225,7 @@
 							endDate: result.value.endDate, //结项日期
 							requestFund: result.value.requestFund, //项目申请经费
 							arrivalFund: result.value.arrivalFund, //到账金额
-							state: result.value.state, //审核状态
+							state: '1', //审核状态
 							approvalNumber: result.value.approvalNumber, //批准文号
 							information: result.value.information, //项目信息
 						},
@@ -232,30 +236,15 @@
 							console.log(res);
 							this.isloading = false;
 							if (res.data.resultCode == '0') {
-								// helper.successPop(this, '申报成功', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'success',
-								// 	content: '申报成功',
-								// 	timeout: 1500,
-								// });
+								helper.successPop(this, '申报成功', 1500);
 								uni.navigateBack()
 							} else {
-								// helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'err',
-								// 	content: '申报失败，请检查信息是否正确',
-								// 	timeout: 1500,
-								// });
+								helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
 							}
 						},
 						fail: (res) => {
 							this.isloading = false;
-							// helper.errorPop(this, '网络错误，请检查网络', 1500);
-							// this.$refs.mpopup.open({
-							// 	type: 'err',
-							// 	content: '网络错误，请检查网络',
-							// 	timeout: 1500,
-							// });
+							helper.errorPop(this, '网络错误，请检查网络', 1500);
 						}
 					});
 				} else {

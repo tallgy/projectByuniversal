@@ -52,6 +52,7 @@ export default {
       ps: 20,
       scrollTopValue: 0,
       scrollTopValueOld: 0,
+      // temp_data:[],
     };
   },
   methods: {
@@ -70,41 +71,37 @@ export default {
      * params：options中的params内容 + 当前页码 + 每页内容数
      */
     getData({ url, params }) {
-    //   console.log("url:" + url);
+      //   console.log("url:" + url);
       return new Promise((resolve, reject) => {
         uni.showToast({
           icon: "none",
           title: `获取${url}的第${params.pi}页的${params.ps}条数据`,
         });
 
+        var token = uni.getStorageSync("token");
+        console.log(token);
+
         //获取当前页数据的方法
         uni.request({
-          url: url,
-          showLoading: false,
-          // data: params,
+          url:url,
+          // showLoading: false,
+          method: 'GET',
+          header: {
+            'Authorization': token,
+          },
+          data: params,
           success: ({ data }) => {
-            let currentList = [];
-            // 如果定义了data的转换器，则使用转换器获取数据
-            // if (converter) {
-            //   currentList = coverter(data);
-            // } else {
-            //   currentList =
-            //     data == null
-            //       ? []
-            //       : data.length == null
-            //       ? data.records.length == null
-            //         ? []
-            //         : data.records
-            //       : data;
-			// }
-			console.log(url);
-			console.log(data);
-            resolve(data);
+            console.log("url(success):"+url);
+            console.log(data);
+            // console.log(data.data);
+            // console.log(token);
+            resolve(data.data);
           },
           error: reject,
         });
-        let data = Array(params.pi < 3 ? params.ps : 1);
-        resolve(data);
+
+        // let data = Array(params.pi < 3 ? params.ps : 1);
+        // resolve(data.data);
       });
     },
 
@@ -125,15 +122,16 @@ export default {
 
         this.getData({ url, params: { ...params, ps: this.ps, pi: this.pi } })
           .then((list) => {
+            console.log("list:"+list);
             this.list = this.list.concat(list); // 合并列表内容
             // 判断列表是否更多
             if (list.length == 0 || list.length < this.ps) {
-              this.hasMore = false;
+              this.hasMore = true;
             } else {
               this.pi++;
             }
             this.$emit("success", this.list);
-            this.loadingMore = false;
+            this.loadingMore = true;
           })
           .catch(() => {
             this.loadingMore = false;

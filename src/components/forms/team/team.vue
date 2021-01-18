@@ -3,6 +3,8 @@
 		<view class="margin-b40">
 			<gpp-configurationForm ref="form" type="fill" :formTemplate="formTemplate" :formValue="project" :isCard="true"></gpp-configurationForm>
 		</view>
+		
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
 
 		<view class="margin-top margin-bottom">
 			<cc-button @cctap="save" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
@@ -14,6 +16,8 @@
 </template>
 
 <script>
+	import helper from '../../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
@@ -187,7 +191,7 @@
 							teamid: result.value.teamid, //团队编号
 							teamname: result.value.teamname, //团队名称
 							researchDiection: result.value.researchDiection, //研究方向
-							discipline: result.value.discipline, //学科门类
+							discipline: '0', //学科门类
 							foundingTime: result.value.foundingTime, //创建时间
 							firstDiscipline: result.value.firstDiscipline, //一级学科
 							phone: result.value.phone, //办公电话
@@ -195,7 +199,7 @@
 							userId: result.value.userId, //负责人
 							userName: result.value.userName, //负责人姓名
 							collegeId: result.value.collegeId, //所属学院
-							user_sex: result.value.user_sex, //负责人性别
+							user_sex: '1', //负责人性别
 							user_birthDate: result.value.user_birthDate, //出生年月
 							user_post: result.value.user_post, //负责人职称
 							user_phone: result.value.user_phone, //联系电话
@@ -209,32 +213,17 @@
 							console.log(res);
 							this.isloading = false;
 							if (res.data.resultCode == '0') {
-								// helper.successPop(this, '申报成功', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'success',
-								// 	content: '申报成功',
-								// 	timeout: 1500,
-								// });
+								helper.successPop(this, '申报成功', 1500);
 								uni.navigateBack()
 								// uni.navigateTo({
 								// 	url: '../../../pages/index/index'
 								// })
 							} else {
-								// helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'err',
-								// 	content: '申报失败，请检查信息是否正确',
-								// 	timeout: 1500,
-								// });
+								helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
 							}
 						},
 						fail: (res) => {
-							// helper.errorPop(this, '网络错误，请检查网络', 1500);
-							// this.$refs.mpopup.open({
-							// 	type: 'err',
-							// 	content: '网络错误，请检查网络',
-							// 	timeout: 1500,
-							// });
+							helper.errorPop(this, '网络错误，请检查网络', 1500);
 							this.isloading = false;
 						}
 					});

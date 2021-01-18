@@ -3,6 +3,8 @@
 		<view class="margin-b40">
 			<gpp-configurationForm ref="form" type="fill" :formTemplate="formTemplate" :formValue="project" :isCard="true"></gpp-configurationForm>
 		</view>
+		
+		<xuan-popup ref="mpopup" :isdistance="true"></xuan-popup>
 
 		<view class="margin-top margin-bottom">
 			<cc-button @cctap="save" width="600rpx" color="#fff" bgcolor=" linear-gradient(-45deg, rgba(87, 225, 181, 1) 0%, rgba(0, 63, 255, 1) 100%);"
@@ -14,6 +16,8 @@
 </template>
 
 <script>
+	import helper from '../../../common/helper.js';
+	
 	export default {
 		data() {
 			return {
@@ -188,32 +192,17 @@
 							console.log(res);
 							this.isloading = false;
 							if (res.data.resultCode == '0') {
-								// helper.successPop(this, '申报成功', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'success',
-								// 	content: '申报成功',
-								// 	timeout: 1500,
-								// });
+								helper.successPop(this, '申报成功', 1500);
 								uni.navigateBack()
 								// uni.navigateTo({
 								// 	url: '../../../pages/index/index'
 								// })
 							} else {
-								// helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
-								// this.$refs.mpopup.open({
-								// 	type: 'err',
-								// 	content: '申报失败，请检查信息是否正确',
-								// 	timeout: 1500,
-								// });
+								helper.errorPop(this, '申报失败，请检查信息是否正确', 1500);
 							}
 						},
 						fail: (res) => {
-							// helper.errorPop(this, '网络错误，请检查网络', 1500);
-							// this.$refs.mpopup.open({
-							// 	type: 'err',
-							// 	content: '网络错误，请检查网络',
-							// 	timeout: 1500,
-							// });
+							helper.errorPop(this, '网络错误，请检查网络', 1500);
 							this.isloading = false;
 						}
 					});

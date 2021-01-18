@@ -158,7 +158,7 @@
 			exit() {
 				uni.showModal({
 				    title: '提示',
-				    content: '是否要退出',
+				    content: '是否要退出并删除信息',
 				    success: function (res) {
 				        if (res.confirm) {
 				            console.log('用户点击确定');

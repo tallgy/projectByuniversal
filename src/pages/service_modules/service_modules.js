@@ -132,6 +132,84 @@ export default {
 			  });
 		},
 
+		/**
+		* toProjectResult处理函数
+		*/
+		toProjectResult: function (event) {
+			this.fun_id='31';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
+		/**
+		* toPaperResult处理函数
+		*/
+		toPaperResult: function (event) {
+			this.fun_id='32';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
+		/**
+		* toWorkResult处理函数
+		*/
+		toWorkResult: function (event) {
+			this.fun_id='32';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
+		/**
+		* toScientificResult处理函数
+		*/
+		toScientificResult: function (event) {
+			this.fun_id='32';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
+		/**
+		* toPatentResult处理函数
+		*/
+		toPatentResult: function (event) {
+			this.fun_id='32';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
+		/**
+		* toTeam处理函数
+		*/
+		toTeam: function (event) {
+			this.fun_id='32';
+			uni.navigateTo({
+				url: "/pages/list/list?fun_id="+this.fun_id,
+				success: (res) => {},
+				fail: () => {},
+				complete: () => {},
+			  });
+		},
+
 		//刷新数据
 		Refresh: function (_action) {
 
